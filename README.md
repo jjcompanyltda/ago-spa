@@ -12,6 +12,7 @@ Site cinematográfico estático (HTML, CSS e JS, sem build) do **Àgò spa & bem
 | Hero 3D | `hero3d.js` (Three.js 0.160.0 via CDN): esfera berinjela pendurada por um fio balançando como pêndulo, anel e pétalas girando, chama âmbar que ilumina a esfera, fumaça e poeira de luz. O mouse inclina o pêndulo. A animação pausa fora da tela, respeita `prefers-reduced-motion` e mostra o símbolo em SVG se não houver WebGL. |
 | A travessia | 150 frames (`assets/frames/`) tocados pela rolagem, com uma porta de madeira que se abre e 3 momentos de texto. |
 | Rituais | Cardápio de massagens e ayurveda; cada linha abre o WhatsApp já citando o ritual. |
+| Menu Day Spa | Os 6 circuitos (Pérola, Jaspe, Turmalina, Diamante, Topázio Imperial, Rubi). Cada pedra vira uma esfera na sua cor dentro do anel da logo; o anel âmbar se preenche na proporção do tempo (1h20 a 7 h). Preços e itens vêm do menu oficial. |
 | O espaço | Galeria horizontal que corre com a rolagem. |
 | Sua visita | Os 4 passos da visita trocam a foto ou o vídeo fixo ao lado. |
 | Extras | Respiração guiada (4 · 4 · 6), som ambiente por Web Audio (desligado por padrão), cursor com halo âmbar, cards com tilt 3D, grão de filme, WhatsApp flutuante com menu. |

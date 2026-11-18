@@ -260,6 +260,46 @@
     }
   }
 
+  /* ── Menu Day Spa: abas das pedras ──────────────────────────────────── */
+  const daySpa = $("#day-spa");
+  if (daySpa) {
+    const abas = $$(".gema-aba", daySpa);
+    const paineis = $$(".circuito", daySpa);
+    const tempo = $(".gema-anel-tempo", daySpa);
+    const relogio = $(".gema-relogio b", daySpa);
+    let atualGema = abas[0]?.dataset.gema, visto = false;
+    paineis.forEach((p) => p.removeAttribute("hidden"));
+    const desenharTempo = () => {
+      const p = paineis.find((x) => x.dataset.gema === atualGema);
+      const pct = visto ? Math.min(100, (+p.dataset.minutos / 420) * 100) : 0;
+      tempo.style.strokeDasharray = `${pct.toFixed(2)} 100`;
+    };
+    const escolher = (gema, focar) => {
+      atualGema = gema;
+      daySpa.dataset.gema = gema;
+      abas.forEach((a) => {
+        const on = a.dataset.gema === gema;
+        a.setAttribute("aria-selected", String(on)); a.tabIndex = on ? 0 : -1;
+        if (on) { if (focar) a.focus(); relogio.textContent = $(".gema-tempo", a).textContent; if (celular()) a.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" }); }
+      });
+      paineis.forEach((p) => { const on = p.dataset.gema === gema; p.classList.toggle("ativo", on); p.inert = !on; p.setAttribute("aria-hidden", String(!on)); });
+      desenharTempo();
+    };
+    abas.forEach((a, i) => {
+      a.addEventListener("click", () => escolher(a.dataset.gema));
+      a.addEventListener("keydown", (e) => {
+        const mapa = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
+        let j = null;
+        if (e.key in mapa) j = (i + mapa[e.key] + abas.length) % abas.length;
+        if (e.key === "Home") j = 0;
+        if (e.key === "End") j = abas.length - 1;
+        if (j !== null) { e.preventDefault(); escolher(abas[j].dataset.gema, true); }
+      });
+    });
+    escolher(atualGema);
+    new IntersectionObserver(([e], o) => { if (e.isIntersecting) { visto = true; setTimeout(desenharTempo, 300); o.disconnect(); } }, { threshold: 0.35 }).observe($(".gema-cena", daySpa));
+  }
+
   /* ── Galeria horizontal que corre com a rolagem ─────────────────────── */
   const galeria = $(".galeria");
   const trilho = galeria && $(".galeria-trilho", galeria);

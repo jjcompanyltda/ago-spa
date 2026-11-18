@@ -252,7 +252,7 @@ p { margin: 0 0 1em; color: var(--tx2); text-wrap: pretty; }
 .menu-movel a:nth-child(odd) { font-style: italic; }
 body.menu-aberto .topo { color: #EFE9F3; --tx: #EFE9F3; --marca: #EFE9F3; background: transparent; border-color: transparent; }
 
-@media (max-width: 1080px) {
+@media (max-width: 1180px) {
   .menu { display: none; }
   .abre-menu { display: inline-grid; }
 }
@@ -484,6 +484,95 @@ html.webgl-ok .hero-reserva { display: none; }
   .lista-ritual a { grid-template-columns: minmax(0, 1fr) auto 16px; gap: 12px; }
   .com-precos .lista-ritual a { grid-template-columns: minmax(0, 1fr) auto auto 16px; }
   .lr-seta { width: 16px; }
+}
+
+/* ═══ 03 Menu Day Spa: as pedras ═════════════════════════════════════ */
+@property --g1 { syntax: "<color>"; inherits: true; initial-value: #fffaf2; }
+@property --g2 { syntax: "<color>"; inherits: true; initial-value: #e6dbe6; }
+@property --g3 { syntax: "<color>"; inherits: true; initial-value: #8f7f9c; }
+[data-gema="perola"]    { --g1: #fffaf2; --g2: #e4d9e6; --g3: #8a7a99; }
+[data-gema="jaspe"]     { --g1: #f6c39c; --g2: #b5502f; --g3: #3f1712; }
+[data-gema="turmalina"] { --g1: #fbd3e2; --g2: #c95d8f; --g3: #2c6450; }
+[data-gema="diamante"]  { --g1: #ffffff; --g2: #d3ddf0; --g3: #66789e; }
+[data-gema="topazio"]   { --g1: #ffe3b0; --g2: #e39a4a; --g3: #7a3f12; }
+[data-gema="rubi"]      { --g1: #ffa3b3; --g2: #b3203d; --g3: #3a0610; }
+.day-spa { isolation: isolate; transition: --g1 1.2s var(--ease-suave), --g2 1.2s var(--ease-suave), --g3 1.2s var(--ease-suave); }
+.day-spa::before { content: ""; position: absolute; right: 0; top: 18%; width: 70%; height: 70%; pointer-events: none; z-index: -1;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--g2) 16%, transparent), transparent); }
+.day-grade { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
+.day-cabecalho { margin-bottom: 14px; }
+.gema-abas { display: grid; gap: 4px; }
+.gema-aba {
+  display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: center; gap: 16px;
+  padding: 13px 20px 13px 14px; border-radius: 999px; border: 1px solid transparent; background: transparent;
+  text-align: left; cursor: pointer; color: var(--tx2); transition: background-color .4s, border-color .4s, color .3s;
+}
+.gema-aba:hover { color: var(--tx); background: rgb(239 233 243 / .03); }
+.gema-aba[aria-selected="true"] { color: var(--tx); background: rgb(239 233 243 / .06); border-color: var(--painel-borda); }
+.gema-mini { width: 22px; height: 22px; border-radius: 50%; justify-self: center; transition: transform .5s var(--ease), box-shadow .5s;
+  background: radial-gradient(circle at 34% 30%, var(--g1), var(--g2) 45%, var(--g3) 92%); box-shadow: 0 0 0 1px rgb(255 255 255 / .1); }
+.gema-aba[aria-selected="true"] .gema-mini { transform: scale(1.22); box-shadow: 0 0 18px 2px color-mix(in srgb, var(--g2) 60%, transparent); }
+.gema-nome { font: 400 clamp(22px, 1.8vw, 27px)/1.1 var(--fonte-titulo); }
+.gema-nome small { display: block; margin-top: 3px; font: 300 10.5px/1 var(--fonte-rotulo); letter-spacing: .22em; text-transform: uppercase; color: var(--tx2); }
+.gema-tempo { font: 300 12px/1 var(--fonte-rotulo); letter-spacing: .18em; text-transform: uppercase; }
+
+.day-palco { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1fr); gap: clamp(30px, 4vw, 60px); align-items: center; padding: clamp(30px, 4vw, 60px); position: sticky; top: calc(var(--topo) + 24px); }
+.gema-cena { position: relative; width: min(360px, 100%); aspect-ratio: 1; justify-self: center; margin: 22px 0 40px; }
+.gema-anel { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.gema-anel circle { fill: none; }
+.gema-anel-base { stroke: rgb(239 233 243 / .16); stroke-width: .7; }
+.gema-anel-tempo { stroke: var(--ambar); stroke-width: 1.8; stroke-linecap: round; stroke-dasharray: 0 100; transform: rotate(-90deg); transform-origin: 100px 100px;
+  transition: stroke-dasharray 1.6s var(--ease); filter: drop-shadow(0 0 4px rgb(231 167 92 / .7)); }
+.gema-marcas line { stroke: rgb(239 233 243 / .28); stroke-width: .7; }
+.gema-fio { position: absolute; left: 50%; top: 3%; height: 24%; width: 1px; transform: translateX(-50%); background: linear-gradient(rgb(239 233 243 / .7), rgb(239 233 243 / .25)); }
+.gema-chama { position: absolute; left: 50%; top: -6%; width: 12px; height: 19px; transform: translateX(-50%); border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  background: radial-gradient(circle at 50% 70%, #fff4d6, var(--ambar) 55%, rgb(231 167 92 / 0) 100%); box-shadow: 0 0 22px 6px rgb(231 167 92 / .45);
+  animation: chama-vela 1.7s ease-in-out infinite; transform-origin: 50% 100%; }
+.gema-orbe { position: absolute; left: 50%; top: 55%; width: 56%; aspect-ratio: 1; border-radius: 50%; translate: -50% -50%; overflow: hidden;
+  background: radial-gradient(circle at 34% 30%, var(--g1) 0%, var(--g2) 44%, var(--g3) 90%);
+  box-shadow: 0 34px 80px -14px color-mix(in srgb, var(--g2) 55%, transparent), inset -20px -26px 50px rgb(0 0 0 / .32), inset 10px 12px 30px rgb(255 255 255 / .16);
+  animation: flutua 7s ease-in-out infinite; }
+.gema-orbe::before { content: ""; position: absolute; inset: -20%; border-radius: 50%; mix-blend-mode: overlay; opacity: .35;
+  background: conic-gradient(from 0deg, transparent, rgb(255 255 255 / .6), transparent 30%, rgb(185 166 208 / .5) 45%, transparent 60%, rgb(231 167 92 / .4) 78%, transparent);
+  animation: gira 16s linear infinite; }
+.day-spa[data-gema="diamante"] .gema-orbe::before { opacity: .55; background: conic-gradient(rgb(255 255 255 / .7) 0 8%, transparent 8% 17%, rgb(185 200 240 / .6) 17% 25%, transparent 25% 38%, rgb(255 255 255 / .55) 38% 44%, transparent 44% 58%, rgb(240 210 255 / .5) 58% 66%, transparent 66% 80%, rgb(255 255 255 / .6) 80% 86%, transparent 86%); }
+.day-spa[data-gema="perola"] .gema-orbe::before { opacity: .5; }
+.gema-brilho { position: absolute; left: 22%; top: 17%; width: 13%; height: 21%; border-radius: 50%; transform: rotate(35deg); background: rgb(255 255 255 / .8); filter: blur(1.5px); }
+.gema-relogio { position: absolute; left: 0; right: 0; bottom: -34px; text-align: center; font: 300 11px/1 var(--fonte-rotulo); letter-spacing: .28em; text-transform: uppercase; color: var(--tx2); }
+.gema-relogio b { font-weight: 400; color: var(--ambar); }
+@keyframes flutua { 50% { transform: translateY(-7px); } }
+@keyframes gira { to { transform: rotate(360deg); } }
+
+.circuitos { display: grid; }
+.day-lado, .day-palco { min-width: 0; }
+.circuito { grid-area: 1 / 1; align-self: center; opacity: 0; visibility: hidden; transform: translateY(14px); transition: opacity .6s var(--ease), transform .8s var(--ease), visibility 0s .6s; }
+.circuito.ativo { opacity: 1; visibility: visible; transform: none; transition: opacity .8s .15s var(--ease), transform 1s .15s var(--ease), visibility 0s; }
+.circuito-tipo { margin: 0 0 6px; font: 300 11px/1 var(--fonte-rotulo); letter-spacing: .32em; text-transform: uppercase; color: var(--tx2); }
+.circuito h3 { font-size: clamp(42px, 4.2vw, 64px); margin-bottom: .18em; color: #EFE9F3; }
+.circuito-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin: 0 0 22px; font: 300 12px/1 var(--fonte-rotulo); letter-spacing: .2em; text-transform: uppercase; color: #CFC3DA; }
+.circuito-preco { margin-left: auto; font: italic 300 clamp(28px, 2.4vw, 36px)/1 var(--fonte-titulo); letter-spacing: 0; text-transform: none; color: var(--ambar); }
+.circuito-passos { list-style: none; margin: 0 0 30px; padding: 0; }
+.circuito-passos li { position: relative; padding: 11px 0 11px 30px; border-bottom: 1px solid rgb(239 233 243 / .1); color: #E4DCEA; font-size: 15.5px; }
+.circuito-passos li::before { content: ""; position: absolute; left: 4px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--g1), var(--g2) 55%, var(--g3)); box-shadow: 0 0 10px color-mix(in srgb, var(--g2) 60%, transparent); }
+.circuito-passos li:not(:last-child)::after { content: ""; position: absolute; left: 8px; top: calc(50% + 7px); height: calc(100% - 14px); width: 1px; background: rgb(239 233 243 / .16); }
+.circuito.ativo .circuito-passos li { animation: passo-entra .8s calc(.2s + var(--k) * 80ms) var(--ease) both; }
+@keyframes passo-entra { from { opacity: 0; transform: translateX(-12px); } }
+
+@media (max-width: 1100px) {
+  .day-palco { grid-template-columns: minmax(0, 1fr); position: static; }
+  .gema-cena { width: min(300px, 80%); }
+}
+@media (max-width: 900px) {
+  .day-grade { grid-template-columns: minmax(0, 1fr); }
+  .gema-abas { display: flex; overflow-x: auto; gap: 8px; margin: 0 calc(-1 * var(--gutter)); padding: 4px var(--gutter) 10px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .gema-abas::-webkit-scrollbar { display: none; }
+  .gema-aba { flex: none; grid-template-columns: 22px auto; gap: 10px; padding: 10px 18px 10px 12px; border-color: var(--linha); scroll-snap-align: start; }
+  .gema-aba .gema-tempo { display: none; }
+  .gema-nome { font-size: 21px; }
+  .gema-mini { width: 18px; height: 18px; }
+  .gema-cena { width: min(250px, 72%); margin-bottom: 44px; }
+  .circuito-preco { margin-left: 0; width: 100%; margin-top: 6px; }
 }
 
 /* Marquee */
