@@ -1,0 +1,5 @@
+# material de origem (vídeo bruto e quadros-chave), fica só na máquina
+fonte/
+.DS_Store
+.env
+node_modules/

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 186" fill="none" stroke="#4A3358" stroke-linecap="round" role="img" aria-label="Àgò">
+  <circle cx="80" cy="101" r="71" stroke-width="1.6"/>
+  <path d="M80 31C70 46 44 56 38 82C34 100 38 112 48 121" stroke-width="2"/>
+  <path d="M80 31C90 46 116 56 122 82C126 100 122 112 112 121" stroke-width="2"/>
+  <path d="M80 31V91" stroke-width="1.1"/>
+  <path d="M80 8C83 13 87 18 87 24A7 7 0 0 1 73 24C73 18 77 13 80 8Z" fill="#4A3358" stroke="none"/>
+  <circle cx="80" cy="135" r="45" fill="#4A3358" stroke="none"/>
+  <ellipse cx="62" cy="116" rx="4.5" ry="7.5" transform="rotate(35 62 116)" fill="#F6F5F3" stroke="none"/>
+  <path d="M75.5 93.6q4.5-1.8 9 0q-4.5 1.8-9 0Z" fill="#F6F5F3" stroke="none"/>
+</svg>

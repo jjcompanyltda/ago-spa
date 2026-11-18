@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 430" role="img" aria-label="Àgò spa e bem viver">
+  <rect width="400" height="430" fill="#F6F5F3"/>
+  <g transform="translate(130 22) scale(.875)" fill="none" stroke="#4A3358" stroke-linecap="round">
+    <circle cx="80" cy="101" r="71" stroke-width="1.8"/>
+    <path d="M80 31C70 46 44 56 38 82C34 100 38 112 48 121" stroke-width="2.2"/>
+    <path d="M80 31C90 46 116 56 122 82C126 100 122 112 112 121" stroke-width="2.2"/>
+    <path d="M80 31V91" stroke-width="1.2"/>
+    <path d="M80 8C83 13 87 18 87 24A7 7 0 0 1 73 24C73 18 77 13 80 8Z" fill="#4A3358" stroke="none"/>
+    <circle cx="80" cy="135" r="45" fill="#4A3358" stroke="none"/>
+    <ellipse cx="62" cy="116" rx="4.5" ry="7.5" transform="rotate(35 62 116)" fill="#F6F5F3" stroke="none"/>
+    <path d="M75.5 93.6q4.5-1.8 9 0q-4.5 1.8-9 0Z" fill="#F6F5F3" stroke="none"/>
+  </g>
+  <text x="200" y="330" text-anchor="middle" font-family="Jost, 'Tenor Sans', 'Futura', 'Century Gothic', sans-serif" font-weight="200" font-size="104" letter-spacing="14" fill="#4A3358">ÀGÒ</text>
+  <text x="200" y="384" text-anchor="middle" font-family="Jost, 'Futura', 'Century Gothic', sans-serif" font-weight="300" font-size="27" letter-spacing="9" fill="#4A3358">spa e bem viver</text>
+</svg>
